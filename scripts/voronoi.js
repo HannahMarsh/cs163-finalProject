@@ -858,7 +858,7 @@ class Voronoi {
                 site = siteEvents.pop();
             } else if (circle) { // process circle event (remove collapsing beach section)
                 let description = `Step ${step_i}: Circle event detected at (${circle.x.toFixed(2)}, ${circle.y.toFixed(2)}).\n`;
-                description += `Removed collapsing beach section associated with site (${circle.arc.site.x.toFixed(2)}, ${circle.arc.site.y.toFixed(2)}).`;
+                description += `Removed collapsing beach section for site (${circle.arc.site.x.toFixed(2)}, ${circle.arc.site.y.toFixed(2)}).`;
 
                 // let description = `Processing circle event at (${circle.x.toFixed(2)}, ${circle.y.toFixed(2)})`;
                 // description += `: Removed beach section for arc ${circle.arc.site.voronoiId}`;
@@ -985,7 +985,7 @@ class Voronoi {
                 sweepLine = site? site.y : lastSite.y;
                 circles = this.getActiveCircleEvents();
                 description = `Step ${step_i}: Circle event detected at (${circle.x.toFixed(2)}, ${circle.y.toFixed(2)}).\n`;
-                description += `Removed collapsing beach section associated with site (${circle.arc.site.x.toFixed(2)}, ${circle.arc.site.y.toFixed(2)}).`;
+                description += `Removed collapsing beach section for site (${circle.arc.site.x.toFixed(2)}, ${circle.arc.site.y.toFixed(2)}).`;
 
                 step_i++;
             } else { // no more events to process
