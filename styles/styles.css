@@ -52,8 +52,6 @@ h3 {
 }
 
 .page {
-    margin-left: 5vw;
-    margin-right: 5vw;
     display: flex;
 }
 
@@ -69,7 +67,7 @@ h3 {
     border: 1px solid #ddd;
     padding: 15px;
     border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.1);
 
     width: 50%;
     
@@ -206,9 +204,6 @@ button.pause-play-skip:disabled + .pause-play-skip-label {
     cursor: not-allowed;
 }
 
-/*#auto-play-button {*/
-/*    font-size: 2em;*/
-/*}*/
 
 #visualize-fortune-button:enabled {
     background-color: #a05fcb;
@@ -366,35 +361,6 @@ button:not(.pause-play-skip):disabled {
 #speed-slider:disabled::-moz-range-thumb:hover {
     background: #c9b2ca;
 }
-
-
-
-
-
-
-/*!* Style slider for better appearance*!*/
-/*input[type="range"] {*/
-/*    -webkit-appearance: none; !* Remove default styling *!*/
-/*    width: 100%;*/
-/*    margin: 10px 0;*/
-/*}*/
-
-/*!* Style ticks (datalist options) *!*/
-/*input[type="range"]::-webkit-slider-runnable-track {*/
-/*    height: 8px;*/
-/*    background: #ddd;*/
-/*    border-radius: 5px;*/
-/*}*/
-
-/*input[type="range"]::-webkit-slider-thumb {*/
-/*    -webkit-appearance: none;*/
-/*    height: 20px;*/
-/*    width: 20px;*/
-/*    background: #007bff;*/
-/*    border-radius: 50%;*/
-/*    cursor: pointer;*/
-/*    margin-top: -6px;*/
-/*}*/
 
 datalist {
     display: flex;
