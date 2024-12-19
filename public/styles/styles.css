@@ -1,0 +1,412 @@
+body {
+    font-family: "PT Sans", "sans-serif";
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+    background-color: #f7ebff;
+}
+
+.top-info {
+    text-align: center;
+}
+
+#variables-table, #variables-table td, #variables-table tr {
+    border: none;
+    width: auto; /* Let the table shrink to fit its content */
+    table-layout: auto; /* Columns adjust to content width */
+    border-collapse: collapse; /* Ensures minimal spacing around borders */
+}
+
+td.var-name {
+    font-weight: bold;
+    width: auto;
+    text-align: left;
+}
+
+td.var-value {
+    text-align: left;
+    width: auto;
+}
+
+h1 {
+    margin-bottom: 40px;
+    margin-top: 40px;
+    font-weight: 300;
+    letter-spacing: -1px;
+}
+
+h2 {
+    font-size: 18px;
+    color: #333;
+    margin-top: 0;
+}
+
+h3 {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 8px;
+    font-style: italic;
+    font-weight: 100;
+}
+
+.page {
+    margin-left: 5vw;
+    margin-right: 5vw;
+    display: flex;
+}
+
+.canvas-table-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.canvas-table {
+    text-align: center;
+    background-color: #fef7ff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+
+    width: 50%;
+    
+}
+
+.canvas-container {
+    width: 100%;
+    height: 75vh;
+    background-color: #ffffff;
+
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.algorithm {
+    width: 40vh;
+}
+
+canvas {
+    width: 100%;
+    height: 100%;
+}
+
+.table-container {
+    width: 15vh;
+    margin-left: 30px;
+    overflow-y: auto;
+    max-height: 50vh;
+    text-align: center;
+    background-color: #fef7ff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table, th, td {
+    /*border: 1px solid black;*/
+    padding: 8px;
+    text-align: center;
+}
+
+#clear-button, #add-random-button {
+    margin-bottom: 20px;
+}
+
+th {
+    background-color: #f7ebff;
+}
+
+button:not(.pause-play-skip) {
+    background-color: #af4ca0;
+    color: white;
+    padding: 8px 12px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button.pause-play-skip {
+    background-color: #f7ebff;
+    color: #af4ca0;
+
+    border: none;
+    border-radius: 4px;
+    padding-top: 0.1em;
+    padding-bottom: 0.1em;
+    font-size: 1.8em;
+    /*margin-top: 5vh;*/
+    /*margin-bottom: 5vh; !* Centers vertically in remaining space *!*/
+}
+
+button.pause-play-skip:disabled {
+    background-color: #f7ebff;;
+    color: #c9b2ca;
+    cursor: not-allowed;
+}
+
+
+
+.pause-play-skip-container {
+    margin-top: 1vh;
+    background-color: #f7ebff;
+    border: none;
+    border-radius: 6px;
+    /*box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.1);*/
+    padding: 15px;
+    display: flex; /* Flexbox layout */
+    flex-direction: row; /* Arrange items horizontally */
+    justify-content: center; /* Center horizontally */
+    align-items: flex-end; /* Center vertically */
+    /*height: 5em;*/
+}
+
+.pause-play-skip-bound {
+    display: flex;
+    flex-direction: column; /* Arrange items horizontally */
+    justify-content: center;
+    height: 100%;
+    width: 3.1em;
+}
+
+.pause-play-skip-bound#pause-play-skip-bound-auto-play {
+    width: 3.5em;
+}
+
+.pause-play-skip-bound#pause-play-skip-bound-auto-play > button.pause-play-skip {
+    font-size: 2em;
+}
+
+
+button.pause-play-skip:not(:disabled):hover {
+    background-color: #af4ca0;
+    color: #f7ebff;
+}
+
+.pause-play-skip-label {
+    color: #af4ca0;
+    font-size: 0.7em;
+    font-weight: bold;
+    line-height: 0.9em;
+    letter-spacing: 0.03em;
+    margin-top: 7px;
+}
+
+button.pause-play-skip:disabled + .pause-play-skip-label {
+    color: #c9b2ca;
+    cursor: not-allowed;
+}
+
+/*#auto-play-button {*/
+/*    font-size: 2em;*/
+/*}*/
+
+#visualize-fortune-button:enabled {
+    background-color: #a05fcb;
+}
+
+button:not(.pause-play-skip):hover {
+    background-color: #a05fcb;
+}
+
+button:not(.pause-play-skip):disabled {
+    background-color: #c9b2ca;
+    cursor: not-allowed;
+}
+
+/* Control Panel Styles */
+.controls {
+    text-align: center;
+    background-color: #fef7ff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.controls label {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    margin: 8px 0;
+    cursor: pointer;
+}
+
+.controls input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+/* Description Panel Styles */
+.description-panel {
+    margin-top: 20px;
+    padding: 15px;
+    width: 100%;
+    /*background-color: #ffffff;*/
+
+    background-color: #fef7ff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.description-panel h3 {
+    font-size: 16px;
+    color: #333;
+    margin-top: 0;
+}
+
+.description-panel p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Container for the speed control */
+.speed-control {
+    /*display: flex;*/
+    align-items: center;
+    /*justify-content: flex-start;*/
+    width: 100%;
+    /*max-width: 800px; !* Adjust width as needed *!*/
+    padding-right: 10px;
+    box-sizing: border-box;
+    margin-bottom: 45px;
+}
+
+/* Label styling */
+.slider-label {
+    margin-right: 15px !important;
+}
+
+/* Slider styling */
+#speed-slider {
+    flex: 1; /* Make the slider stretch */
+    appearance: none;
+    height: 10px;
+    background: #ddd;
+    border-radius: 5px;
+    outline: none;
+    transition: background 0.3s;
+    width: 100%;
+}
+
+/* Slider thumb (the handle) */
+#speed-slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #af4ca0;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: -10px; /* Adjust thumb vertical position */
+}
+
+#speed-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #af4ca0;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#speed-slider::-webkit-slider-thumb:hover,
+#speed-slider::-moz-range-thumb:hover {
+    background: #8b4caf; /* Darker color on hover */
+}
+
+/* Speed display styling */
+.speed-display {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-left: 10px;
+    color: #333;
+}
+
+
+
+/* Style the slider track when disabled */
+#speed-slider:disabled {
+    background: #ccc; /* Greyed-out track */
+    cursor: not-allowed; /* Show a "not allowed" cursor */
+    opacity: 0.6; /* Slightly transparent */
+}
+
+/* Style the slider thumb (Webkit) when disabled */
+#speed-slider:disabled::-webkit-slider-thumb {
+    background: #c9b2ca; /* Light grey thumb */
+    cursor: not-allowed;
+}
+
+/* Style the slider thumb (Firefox) when disabled */
+#speed-slider:disabled::-moz-range-thumb {
+    background: #c9b2ca; /* Light grey thumb */
+    cursor: not-allowed;
+}
+
+/* Optional: Disable hover effects when the slider is disabled */
+#speed-slider:disabled:hover {
+    background: #ccc;
+}
+
+#speed-slider:disabled::-webkit-slider-thumb:hover,
+#speed-slider:disabled::-moz-range-thumb:hover {
+    background: #c9b2ca;
+}
+
+
+
+
+
+
+/*!* Style slider for better appearance*!*/
+/*input[type="range"] {*/
+/*    -webkit-appearance: none; !* Remove default styling *!*/
+/*    width: 100%;*/
+/*    margin: 10px 0;*/
+/*}*/
+
+/*!* Style ticks (datalist options) *!*/
+/*input[type="range"]::-webkit-slider-runnable-track {*/
+/*    height: 8px;*/
+/*    background: #ddd;*/
+/*    border-radius: 5px;*/
+/*}*/
+
+/*input[type="range"]::-webkit-slider-thumb {*/
+/*    -webkit-appearance: none;*/
+/*    height: 20px;*/
+/*    width: 20px;*/
+/*    background: #007bff;*/
+/*    border-radius: 50%;*/
+/*    cursor: pointer;*/
+/*    margin-top: -6px;*/
+/*}*/
+
+datalist {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 8px;
+}
+
+datalist option {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #555;
+    position: relative;
+}
+
