@@ -445,3 +445,20 @@ datalist option {
     position: relative;
 }
 
+a, a:visited, a:active {
+    color: #af4ca0; /* Normal link color */
+    text-decoration: none; /* Removes underline */
+
+}
+
+a:hover {
+    color: #8b4caf; /* Color when hovering */
+    text-decoration: underline;
+}
+
+.speed-options-label, .display-options-label {
+    padding-top: 1vh;
+    text-align: left;
+}
+
+
