@@ -86,7 +86,6 @@ class Canvas {
         point.x = point.x * wScale;
         point.y = point.y * hScale;
       });
-      this.
       this.DrawCurrentState()
     }
 
