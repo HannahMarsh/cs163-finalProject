@@ -22,7 +22,7 @@
 
         <div class="header">
 
-            <div class="top-info">Computational Geometry (COMP 193), <em>Tufts University</em>, Fall 2024<br>Final Project, 12/18/24<br><b>Hannah Marsh</b> (<em>hmarsh03@cs.tufts.edu</em>)</div>
+            <div class="top-info">Computational Geometry (COMP 193), <em>Tufts University</em>, Fall 2024<br><b>Hannah Marsh</b> (<em>hmarsh03@cs.tufts.edu</em>)</div>
             <h1>Voronoi Diagram and Fortune's Sweep Line Visualization Tool</h1>
         </div>
 
@@ -48,7 +48,7 @@
             <div class="algorithm">
                 <div class="controls">
                     <h2>Algorithm Controls</h2>
-                    <p id="add-points"><em>Add points to the canvas before starting algorithm.</em></p>
+<!--                    <p id="add-points"><em>Add points to the canvas before starting algorithm.</em></p>-->
 
                     <button id="start-button" disabled>Start</button>
                     <div class="pause-play-skip-container">
@@ -99,15 +99,17 @@
 
                     <h3 style="text-align: left;">Display Options:</h3>
 
-                    <label>
-                        <input type="checkbox" id="show-beachline" checked/> Show Beach Line
-                    </label>
-                    <label>
-                        <input type="checkbox" id="show-circle-events" checked/> Show Circle Events
-                    </label>
-                    <label>
-                        <input type="checkbox" id="smooth-transition" checked/> Smooth Transition
-                    </label>
+                    <div class="display-checkboxes">
+                        <label>
+                            <input type="checkbox" id="show-beachline" checked/> Show Beach Line
+                        </label>
+                        <label>
+                            <input type="checkbox" id="show-circle-events" checked/> Show Circle Events
+                        </label>
+                        <label>
+                            <input type="checkbox" id="smooth-transition" checked/> Smooth Transition
+                        </label>
+                    </div>
                 </div>
                 <div class="description-panel">
                     <h3>Variables and Data Structures</h3>
