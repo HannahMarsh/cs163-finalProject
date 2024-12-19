@@ -330,9 +330,18 @@ class Canvas {
     });
   }
 
+  isBorderEdge(edge) {
+    return ((this.eqEps(edge.va.x, edge.vb.x) && (this.eqEps(edge.va.x, this.bbox.xr) || this.eqEps(edge.va.x, this.bbox.xl))) ||
+        (this.eqEps(edge.va.y, edge.vb.y) && (this.eqEps(edge.va.y, this.bbox.yt) || this.eqEps(edge.va.y, this.bbox.yb))));
+  }
+
+
   DrawEdge(edge) {
     if (!edge || !edge.va || !edge.vb) {
       return;
+    }
+    if (this.isBorderEdge(edge)) {
+        return;
     }
     let isFinalEdge = this.finalResult?.edges?.find(e => {
       return this.eqEps(e.va.x, edge.va.x) && this.eqEps(e.va.y, edge.va.y) && this.eqEps(e.vb.x, edge.vb.x) && this.eqEps(e.vb.y, edge.vb.y);

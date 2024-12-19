@@ -4,7 +4,6 @@ body {
     flex-direction: column;
     align-items: center;
     margin: 0;
-    padding: 20px;
     background-color: #f7ebff;
 }
 
@@ -30,9 +29,15 @@ td.var-value {
     width: auto;
 }
 
-h1 {
-    margin-bottom: 40px;
-    margin-top: 40px;
+.header {
+
+    text-align: center;
+    padding-top: 1.6vh;
+    margin: 0 0 2vh 0;
+}
+
+h1 {;
+    margin-top: 1.6vh;
     font-weight: 300;
     letter-spacing: -1px;
 }
@@ -44,45 +49,63 @@ h2 {
 }
 
 h3 {
-    font-size: 16px;
+    font-size: 1em;
     color: #555;
-    margin-bottom: 8px;
     font-style: italic;
     font-weight: 100;
 }
 
 .page {
     display: flex;
+    flex-direction: column;
+    height: 100vh; /* Full height of the viewport */
+    width: 100vw;
 }
 
 .canvas-table-container {
+    flex: 1;
     display: flex;
-    align-items: flex-start;
-    gap: 20px;
+    flex-direction: row;
+    gap: 1.5vw;
+    margin-left: 3vw;
+    margin-right: 3vw;
+    margin-bottom: 2vh;
 }
 
 .canvas-table {
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
     text-align: center;
     background-color: #fef7ff;
     border: 1px solid #ddd;
-    padding: 15px;
+    padding: 2vh 1.5vw;
     border-radius: 5px;
     box-shadow: 0 0px 10px rgba(0, 0, 0, 0.1);
 
-    width: 50%;
+    /*width: 70%;*/
+    /*height: 100%;*/
     
 }
 
 .canvas-container {
     width: 100%;
-    height: 75vh;
+    height: 100%;
     background-color: #ffffff;
 
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+
+    border: black 1px solid;
 }
 
 .algorithm {
-    width: 40vh;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    /*width: 20vw;*/
+    /*height: 100%;*/
+    /*height: auto;*/
+    width: auto;
 }
 
 canvas {
@@ -90,11 +113,13 @@ canvas {
     height: 100%;
 }
 
+.canvas-buttons {
+}
+
 .table-container {
-    width: 15vh;
-    margin-left: 30px;
+    width: auto;
+    height: auto;
     overflow-y: auto;
-    max-height: 50vh;
     text-align: center;
     background-color: #fef7ff;
     border: 1px solid #ddd;
@@ -115,7 +140,7 @@ table, th, td {
 }
 
 #clear-button, #add-random-button {
-    margin-bottom: 20px;
+
 }
 
 th {
@@ -126,7 +151,6 @@ button:not(.pause-play-skip) {
     background-color: #af4ca0;
     color: white;
     padding: 8px 12px;
-    margin: 5px 0;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -224,7 +248,6 @@ button:not(.pause-play-skip):disabled {
     background-color: #fef7ff;
     border: 1px solid #ddd;
     padding: 15px;
-    width: 100%;
     border-radius: 5px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
@@ -245,9 +268,9 @@ button:not(.pause-play-skip):disabled {
 
 /* Description Panel Styles */
 .description-panel {
-    margin-top: 20px;
+    margin-top: 2vh;
     padding: 15px;
-    width: 100%;
+    /*width: 100%;*/
     /*background-color: #ffffff;*/
 
     background-color: #fef7ff;
@@ -268,16 +291,23 @@ button:not(.pause-play-skip):disabled {
     line-height: 1.5;
 }
 
+#algorithm-event-log {
+    flex: 1; /* Grow to fill horizontal space */
+    display: flex; /* Enable nested layout */
+    flex-direction: column; /* Stack content vertically if needed */
+    height: 100%;
+}
+
 /* Container for the speed control */
 .speed-control {
     /*display: flex;*/
     align-items: center;
     /*justify-content: flex-start;*/
-    width: 100%;
+    width: auto;
     /*max-width: 800px; !* Adjust width as needed *!*/
-    padding-right: 10px;
     box-sizing: border-box;
-    margin-bottom: 45px;
+    margin: 1vh 0 2vh 0;
+    padding: 0.5vw;
 }
 
 /* Label styling */

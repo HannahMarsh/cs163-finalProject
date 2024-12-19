@@ -17,136 +17,144 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <div class="top-info">Computational Geometry (COMP 193), <em>Tufts University</em>, Fall 2024<br>Final Project, 12/18/24<br><b>Hannah Marsh</b> (<em>hmarsh03@cs.tufts.edu</em>)</div>
-    <h1>Voronoi Diagram and Fortune's Sweep Line Visualization Tool</h1>
+
     <div class="page">
-    <div class="canvas-table-container">
-        
-        <div class="canvas-table">
-            <h2>Canvas</h2>
 
-            <button id="clear-button"><i class="fa-solid fa-trash-can"></i> Clear All Points</button>
-            <button id="add-random-button"><i class="fa-solid fa-circle-plus"></i> Add Random Point</button>
-            <button id="add-5-random-button"><i class="fa-solid fa-circle-plus"></i> Add 5 Random Points</button>
-            <h3>Click anywhere in the canvas to add a point, or drag existing points to a new position.</h3>
-            <div class="canvas-container">
-                <canvas id="main-canvas"></canvas>
-                <div id="popup" style="display: none; position: absolute; background: rgba(0, 0, 0, 0.8); color: white; padding: 5px; border-radius: 5px; font-size: 12px; pointer-events: none;">
-                    Coordinates: (x, y)
-                </div>
+        <div class="header">
 
-            </div>
+            <div class="top-info">Computational Geometry (COMP 193), <em>Tufts University</em>, Fall 2024<br>Final Project, 12/18/24<br><b>Hannah Marsh</b> (<em>hmarsh03@cs.tufts.edu</em>)</div>
+            <h1>Voronoi Diagram and Fortune's Sweep Line Visualization Tool</h1>
         </div>
-        
-        <div class="algorithm">
-            <div class="controls">
-                <h2>Algorithm Controls</h2>
-                <p id="add-points"><em>Add points to the canvas before starting algorithm.</em></p>
 
-                <button id="start-button" disabled>Start</button>
-                <div class="pause-play-skip-container">
-                    <div class="pause-play-skip-bound" id="pause-play-skip-bound-skip-back">
-                        <button class="pause-play-skip" id="skip-back-button"  disabled><i class="fas fa-backward-fast"></i></button>
-                        <span class="pause-play-skip-label">Skip<br>Back</span>
-                    </div><div class="pause-play-skip-bound" id="pause-play-skip-bound-step-back">
-                        <button class="pause-play-skip" id="back-button" disabled><i class="fa-solid fa-backward-step"></i></button>
-                    <span class="pause-play-skip-label">Step<br>Back</span>
-                    </div><div class="pause-play-skip-bound" id="pause-play-skip-bound-auto-play">
-                        <button class="pause-play-skip" id="auto-play-button" disabled><i class="fa-solid fa-circle-play"></i></button>
-                        <span class="pause-play-skip-label" id="auto-play-label">Auto<br>Play</span>
-                    </div><div class="pause-play-skip-bound" id="pause-play-skip-bound-step-ahead">
-                        <button class="pause-play-skip" id="next-button" disabled><i class="fas fa-forward-step"></i></button>
-                    <span class="pause-play-skip-label">Step<br>Ahead</span>
-                    </div><div class="pause-play-skip-bound" id="pause-play-skip-bound-skip-ahead">
-                        <button class="pause-play-skip" id="skip-ahead-button" disabled><i class="fas fa-forward-fast"></i></button>
-                    <span class="pause-play-skip-label">Skip<br>Ahead</span>
+        <div class="canvas-table-container">
+
+            <div class="canvas-table">
+                <h2>Canvas</h2>
+                <div class="canvas-buttons">
+                    <button id="clear-button"><i class="fa-solid fa-trash-can"></i> Clear All Points</button>
+                    <button id="add-random-button"><i class="fa-solid fa-circle-plus"></i> Add Random Point</button>
+                    <button id="add-5-random-button"><i class="fa-solid fa-circle-plus"></i> Add 5 Random Points</button>
+                </div>
+                <h3>Click anywhere in the canvas to add a point, or drag existing points to a new position.</h3>
+                <div class="canvas-container">
+                    <canvas id="main-canvas"></canvas>
+                    <div id="popup" style="display: none; position: absolute; background: rgba(0, 0, 0, 0.8); color: white; padding: 5px; border-radius: 5px; font-size: 12px; pointer-events: none;">
+                        Coordinates: (x, y)
                     </div>
+
                 </div>
-
-
-        
-                <h3 style="text-align: left;">Speed Options:</h3>
-
-                <button id="slow-down" title="Slow down animation">Slow down</button>
-
-                <button id="speed-up" title="Speed up animation">Speed Up</button>
-<!--                <div class="speed-control">-->
-<!--                    <label class="slider-label" for="speed-slider">Speed:</label>-->
-<!--                    <input type="range" id="speed-slider" min="1" max="9" value="5" step="1">-->
-<!--                    <span id="speed-display">1x</span>-->
-<!--                </div>-->
-                <div class="speed-control">
-                    <input type="range" id="speed-slider" min="1" max="9" value="5" step="1" list="speed-ticks">
-                    <datalist id="speed-ticks">
-                        <option value="1" label="0.2x"></option>
-                        <option value="2" label="0.3x"></option>
-                        <option value="3" label="0.5x"></option>
-                        <option value="4" label="0.75x"></option>
-                        <option value="5" label="1x"></option>
-                        <option value="6" label="1.5x"></option>
-                        <option value="7" label="2x"></option>
-                        <option value="8" label="2.5x"></option>
-                        <option value="9" label="3x"></option>
-                    </datalist>
-                </div>
-
-                <h3 style="text-align: left;">Display Options:</h3>
-
-                <label>
-                    <input type="checkbox" id="show-beachline" checked/> Show Beach Line
-                </label>
-                <label>
-                    <input type="checkbox" id="show-circle-events" checked/> Show Circle Events
-                </label>
-                <label>
-                    <input type="checkbox" id="smooth-transition" checked/> Smooth Transition
-                </label>
             </div>
-            <div class="description-panel">
-                <h3>Variables and Data Structures</h3>
-                <table id="variables-table">
 
-                    <tr>
-                        <td class="var-name">Num points:</td>
-                        <td class="var-value" id = "n"> </td>
-                    </tr>
-                    <tr>
-                        <td class="var-name">Sweep line:</td>
-                        <td class="var-value" id = "sweep-line"> </td>
-                    </tr>
-                    <tr>
-                        <td class="var-name">Step:</td>
-                        <td class="var-value" id = "i-num"> </td>
-                    </tr>
-                    <tr>
-                        <td class="var-name">Active circle events:</td>
-                        <td class="var-value" id = "arcs"> </td>
-                    </tr>
-                    <tr>
-                        <td class="var-name">Edges:</td>
-                        <td class="var-value" id = "edges"> </td>
-                    </tr>
+            <div class="algorithm">
+                <div class="controls">
+                    <h2>Algorithm Controls</h2>
+                    <p id="add-points"><em>Add points to the canvas before starting algorithm.</em></p>
+
+                    <button id="start-button" disabled>Start</button>
+                    <div class="pause-play-skip-container">
+                        <div class="pause-play-skip-bound" id="pause-play-skip-bound-skip-back">
+                            <button class="pause-play-skip" id="skip-back-button"  disabled><i class="fas fa-backward-fast"></i></button>
+                            <span class="pause-play-skip-label">Skip<br>Back</span>
+                        </div><div class="pause-play-skip-bound" id="pause-play-skip-bound-step-back">
+                            <button class="pause-play-skip" id="back-button" disabled><i class="fa-solid fa-backward-step"></i></button>
+                        <span class="pause-play-skip-label">Step<br>Back</span>
+                        </div><div class="pause-play-skip-bound" id="pause-play-skip-bound-auto-play">
+                            <button class="pause-play-skip" id="auto-play-button" disabled><i class="fa-solid fa-circle-play"></i></button>
+                            <span class="pause-play-skip-label" id="auto-play-label">Auto<br>Play</span>
+                        </div><div class="pause-play-skip-bound" id="pause-play-skip-bound-step-ahead">
+                            <button class="pause-play-skip" id="next-button" disabled><i class="fas fa-forward-step"></i></button>
+                        <span class="pause-play-skip-label">Step<br>Ahead</span>
+                        </div><div class="pause-play-skip-bound" id="pause-play-skip-bound-skip-ahead">
+                            <button class="pause-play-skip" id="skip-ahead-button" disabled><i class="fas fa-forward-fast"></i></button>
+                        <span class="pause-play-skip-label">Skip<br>Ahead</span>
+                        </div>
+                    </div>
+
+
+
+                    <h3 style="text-align: left;">Speed Options:</h3>
+
+                    <button id="slow-down" title="Slow down animation">Slow down</button>
+
+                    <button id="speed-up" title="Speed up animation">Speed Up</button>
+    <!--                <div class="speed-control">-->
+    <!--                    <label class="slider-label" for="speed-slider">Speed:</label>-->
+    <!--                    <input type="range" id="speed-slider" min="1" max="9" value="5" step="1">-->
+    <!--                    <span id="speed-display">1x</span>-->
+    <!--                </div>-->
+                    <div class="speed-control">
+                        <input type="range" id="speed-slider" min="1" max="9" value="5" step="1" list="speed-ticks">
+                        <datalist id="speed-ticks">
+                            <option value="1" label="0.2x"></option>
+                            <option value="2" label="0.3x"></option>
+                            <option value="3" label="0.5x"></option>
+                            <option value="4" label="0.75x"></option>
+                            <option value="5" label="1x"></option>
+                            <option value="6" label="1.5x"></option>
+                            <option value="7" label="2x"></option>
+                            <option value="8" label="2.5x"></option>
+                            <option value="9" label="3x"></option>
+                        </datalist>
+                    </div>
+
+                    <h3 style="text-align: left;">Display Options:</h3>
+
+                    <label>
+                        <input type="checkbox" id="show-beachline" checked/> Show Beach Line
+                    </label>
+                    <label>
+                        <input type="checkbox" id="show-circle-events" checked/> Show Circle Events
+                    </label>
+                    <label>
+                        <input type="checkbox" id="smooth-transition" checked/> Smooth Transition
+                    </label>
+                </div>
+                <div class="description-panel">
+                    <h3>Variables and Data Structures</h3>
+                    <table id="variables-table">
+
+                        <tr>
+                            <td class="var-name">Num points:</td>
+                            <td class="var-value" id = "n"> </td>
+                        </tr>
+                        <tr>
+                            <td class="var-name">Sweep line:</td>
+                            <td class="var-value" id = "sweep-line"> </td>
+                        </tr>
+                        <tr>
+                            <td class="var-name">Step:</td>
+                            <td class="var-value" id = "i-num"> </td>
+                        </tr>
+                        <tr>
+                            <td class="var-name">Active circle events:</td>
+                            <td class="var-value" id = "arcs"> </td>
+                        </tr>
+                        <tr>
+                            <td class="var-name">Edges:</td>
+                            <td class="var-value" id = "edges"> </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="description-panel" id="algorithm-event-log">
+                    <h3>Algorithm Event Log</h3>
+                    <p id="step-description">Click "Start" to visualise Fortune's sweep line algorithm.</p>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <h2>Point Coordinates</h2>
+                <table id="points-table">
+                    <thead>
+                        <tr>
+                            <th>Point</th>
+                            <th>X</th>
+                            <th>Y</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
                 </table>
             </div>
-            <div class="description-panel">
-                <h3>Algorithm Event Log</h3>
-                <p id="step-description">Click "Start" to visualise Fortune's sweep line algorithm.</p>
-            </div>
         </div>
-        <div class="table-container">
-            <h2>Point Coordinates</h2>
-            <table id="points-table">
-                <thead>
-                    <tr>
-                        <th>Point</th>
-                        <th>X</th>
-                        <th>Y</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
-        </div>
-    </div>
     </div>
 
     
